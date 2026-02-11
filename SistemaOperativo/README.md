@@ -69,5 +69,4 @@ Si tienes Doxygen instalado en tu sistema:
 
 
 
-Segunda prueba Ana - 11 de febrero
 
