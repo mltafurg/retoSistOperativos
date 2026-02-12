@@ -41,6 +41,12 @@ void cmd_ayuda(char **args);
  */
 void cmd_salir(char **args);
 
+/**
+ * @brief Renombra un archivo.
+ */
+void cmd_renombrar(char **args);
+
+
 // --- Utilidades del Registro de Comandos ---
 
 /**

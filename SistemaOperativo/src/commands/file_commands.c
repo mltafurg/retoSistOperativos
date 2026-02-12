@@ -11,6 +11,8 @@
 #include <string.h>
 #include <dirent.h> // Librería POSIX para manejo de directorios
 #include "commands.h"
+#include <unistd.h>  // Para el comando rename()
+
 
 /**
  * @brief Comando LISTAR (ls)
@@ -78,4 +80,35 @@ void cmd_leer(char **args) {
 
     // fclose(): Es crítico cerrar los archivos para evitar fugas de recursos.
     fclose(fp);
+}
+/**
+ * @brief Comando RENOMBRAR
+ * 
+ * Cambia el nombre de un archivo existente utilizando la función estándar
+ * rename() de la librería POSIX.
+ * 
+ * Este comando recibe dos argumentos:
+ * - args[1]: nombre actual del archivo.
+ * - args[2]: nuevo nombre que se desea asignar.
+ * 
+ * Si la operación falla (por ejemplo, si el archivo no existe o no hay
+ * permisos suficientes), se muestra un mensaje descriptivo del error.
+ * 
+ * @param args Arreglo de argumentos ingresados por el usuario.
+ */
+void cmd_renombrar(char **args) {
+    // Validación básica: verificar que se hayan proporcionado ambos argumentos.
+    if (args[1] == NULL || args[2] == NULL) {
+        printf("Error: Uso incorrecto.\nUso: renombrar <archivo_viejo> <archivo_nuevo>\n");
+        return;
+    }
+
+    // rename(): Cambia el nombre del archivo especificado.
+    // Retorna 0 si la operación fue exitosa.
+    // Retorna -1 en caso de error y establece errno.
+    if (rename(args[1], args[2]) == 0) {
+        printf("Archivo '%s' renombrado a '%s' exitosamente.\n", args[1], args[2]);
+    } else {
+        perror("Error al renombrar el archivo");
+    }
 }

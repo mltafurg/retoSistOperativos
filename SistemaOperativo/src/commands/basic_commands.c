@@ -14,20 +14,20 @@
  * Muestra al usuario la lista de acciones que puede realizar.
  * Es fundamental para la usabilidad de la shell.
  * 
- * @param args Argumentos del comando (no se usan aquí, por eso (void)args).
+ * @param args Argumentos del comando (no se usan en esta función).
  */
 void cmd_ayuda(char **args) {
+    (void)args;  // Silencia advertencia por parámetro no utilizado
+
     printf("--- Ayuda de Shell Educativa ---\n");
     printf("Comandos disponibles:\n");
     printf("  - listar: Muestra archivos del directorio.\n");
     printf("  - leer <archivo>: Muestra el contenido de un archivo.\n");
     printf("  - tiempo: Muestra la fecha y hora actual.\n");
     printf("  - calc <n1> <op> <n2>: Realiza cálculos simples.\n");
+    printf("  - renombrar <archivo_viejo> <archivo_nuevo>: Cambia el nombre de un archivo.\n");
     printf("  - ayuda: Muestra este mensaje.\n");
     printf("  - salir: Termina la sesión.\n");
-    
-    // Silenciar advertencia de compilador sobre variable no usada
-    (void)args;
 }
 
 /**
