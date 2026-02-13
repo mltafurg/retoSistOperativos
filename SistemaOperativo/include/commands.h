@@ -46,6 +46,12 @@ void cmd_salir(char **args);
  */
 void cmd_renombrar(char **args);
 
+/**
+ * @brief Busca texto en un archivo.
+ */
+void cmd_buscar(char **args);
+
+
 
 // --- Utilidades del Registro de Comandos ---
 

@@ -26,6 +26,7 @@ void cmd_ayuda(char **args) {
     printf("  - tiempo: Muestra la fecha y hora actual.\n");
     printf("  - calc <n1> <op> <n2>: Realiza cálculos simples.\n");
     printf("  - renombrar <archivo_viejo> <archivo_nuevo>: Cambia el nombre de un archivo.\n");
+    printf("  - buscar <texto> <archivo>: Busca texto dentro de un archivo.\n");
     printf("  - ayuda: Muestra este mensaje.\n");
     printf("  - salir: Termina la sesión.\n");
 }

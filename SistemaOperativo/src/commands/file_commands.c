@@ -112,3 +112,48 @@ void cmd_renombrar(char **args) {
         perror("Error al renombrar el archivo");
     }
 }
+
+/**
+ * @brief Comando BUSCAR
+ * 
+ * Busca una cadena de texto dentro de un archivo.
+ * 
+ * Este comando recibe dos argumentos:
+ * - args[1]: texto a buscar.
+ * - args[2]: nombre del archivo donde buscar.
+ * 
+ * Si la operación falla (por ejemplo, si el archivo no existe o no hay
+ * permisos suficientes), se muestra un mensaje descriptivo del error.
+ * 
+ * @param args Arreglo de argumentos ingresados por el usuario.
+ */
+
+
+void cmd_buscar(char **args){
+    // Validación básica: verificar que se hayan proporcionado ambos argumentos.
+     if (args[1] == NULL || args[2] == NULL) {
+        printf("Error: Uso incorrecto.\nUso: buscar <texto> <archivo>\n");
+        return;
+    }
+    //declaracion de un puntero tipo archivo y un array para almacenar el contenido del archivo
+    FILE *ptr;
+    char contentFile[1000];
+    // funcion para abrir el archivo en modo lectura (r es read), devuelve null si no se pudo abrir el archivo
+    ptr = fopen(args[2],"r");
+    // condicional donde si se abre el archivo (no hay null) 
+    if(ptr != NULL){
+        // si entramos al if, el archivo se lee con fgets y lo guarda en un array (contenFile), 
+        // fgets lee una linea del archivo (es linea por linea), el ciclo se repite hasta que no haya mas lineas (fgets devuelve null)
+        while(fgets(contentFile,1000,ptr) != NULL){
+            // en este ciclo revisamos con strstr (que es la funcion que permite buscar un substring dentro de un string)
+            // si el texto que el user dio esta en el archivo, si no lo encuentra sigue al siguiente ciclo
+             if(strstr(contentFile, args[1])!=NULL){
+                // si lo encuntra imprime la linea del archivo donde se encuentra el texto
+            printf("%s", contentFile);
+        }
+        }
+     fclose(ptr);   
+    }else{
+        printf("Error: no se pudo abrir el archivo '%s'. Verifique que exista.\n", args[2]);
+    }
+}
