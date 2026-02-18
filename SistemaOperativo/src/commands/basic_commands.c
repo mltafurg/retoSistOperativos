@@ -25,6 +25,8 @@ void cmd_ayuda(char **args) {
     printf("  - leer <archivo>: Muestra el contenido de un archivo.\n");
     printf("  - tiempo: Muestra la fecha y hora actual.\n");
     printf("  - calc <n1> <op> <n2>: Realiza cálculos simples.\n");
+    printf("  - crear <archivo>: Crea un archivo nuevo.\n");
+    printf("  - eliminar <archivo>: Elimina un archivo existente con confirmación.\n");
     printf("  - renombrar <archivo_viejo> <archivo_nuevo>: Cambia el nombre de un archivo.\n");
     printf("  - buscar <texto> <archivo>: Busca texto dentro de un archivo.\n");
     printf("  - ayuda: Muestra este mensaje.\n");

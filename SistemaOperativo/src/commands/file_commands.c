@@ -81,6 +81,85 @@ void cmd_leer(char **args) {
     // fclose(): Es crítico cerrar los archivos para evitar fugas de recursos.
     fclose(fp);
 }
+
+/**
+ * @brief Crea un archivo vacío si no existe.
+ *
+ * Verifica primero si el archivo ya existe.
+ * Si el archivo existe, muestra un mensaje de error
+ * y no lo sobrescribe.
+ * Si no existe, lo crea en modo escritura.
+ *
+ * @param nombre Nombre del archivo a crear.
+ */
+void cmd_crear(char **args) {
+    char *nombre = args[1];
+    if (nombre == NULL) {
+        printf("Error: Debes especificar un nombre de archivo.\nUso: crear <nombre_archivo>\n");
+        return;
+    }
+    FILE *archivo;
+
+    archivo = fopen(nombre, "r");
+
+    if (archivo != NULL) {
+        printf("Error: El archivo '%s' ya existe.\n", nombre);
+        fclose(archivo);
+        return;
+    }
+
+    archivo = fopen(nombre, "w");
+
+    if (archivo == NULL) {
+        printf("Error: No se pudo crear el archivo '%s'.\n", nombre);
+        return;
+    }
+
+    fclose(archivo);
+    printf("Archivo '%s' creado correctamente.\n", nombre);
+}
+
+
+/**
+ * @brief Elimina un archivo con confirmación del usuario.
+ *
+ * Verifica si el archivo existe antes de intentar eliminarlo.
+ * Solicita confirmación al usuario antes de proceder.
+ *
+ * @param nombre Nombre del archivo a eliminar.
+ */
+void cmd_eliminar(char **args) {
+    char *nombre = args[1];
+     if (nombre == NULL) {
+        printf("Error: Debes especificar un archivo para eliminar.\nUso: eliminar <nombre_archivo>\n");
+        return;
+    }
+    FILE *archivo;
+
+    archivo = fopen(nombre, "r");
+
+    if (archivo == NULL) {
+        printf("Error: El archivo '%s' no existe.\n", nombre);
+        return;
+    }
+
+    fclose(archivo);
+
+    char respuesta;
+    printf("¿Seguro que deseas eliminar '%s'? (s/n): ", nombre);
+    scanf(" %c", &respuesta);
+
+    if (respuesta == 's' || respuesta == 'S') {
+        if (remove(nombre) == 0) {
+            printf("Archivo '%s' eliminado correctamente.\n", nombre);
+        } else {
+            printf("Error: No se pudo eliminar el archivo.\n");
+        }
+    } else {
+        printf("Eliminación cancelada.\n");
+    }
+}
+
 /**
  * @brief Comando RENOMBRAR
  * 
