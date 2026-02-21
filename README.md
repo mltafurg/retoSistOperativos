@@ -106,6 +106,7 @@ EAFITos>
 
 ---
 ## EJEMPLOS DE USO:
+```
 EAFITos> listar
 archivo1.txt  archivo2.txt  README.md
 
@@ -118,6 +119,7 @@ Archivo renombrado de 'nuevo.txt' a 'documento.txt'.
 EAFITos> eliminar documento.txt
 ¿Está seguro de eliminar 'documento.txt'? (s/n): s
 Archivo eliminado.
+```
 
 
 
