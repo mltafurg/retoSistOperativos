@@ -5,6 +5,7 @@
 2. Maria Laura Tafur
 3. Ana Sofía Angarita
 ---
+## DESCRIPCIÓN:
 EAFITos es una shell interactiva desarrollada en C con fines educativos, diseñada para que los estudiantes puedan practicar y entender conceptos clave de **Sistemas Operativos**, como manejo de archivos, ejecución de comandos y gestión de procesos básicos.  
 El proyecto simula un entorno real de línea de comandos, permitiendo ejecutar comandos tanto básicos como avanzados, y proporciona una plataforma segura para experimentar con operaciones sobre el sistema de archivos sin afectar el entorno principal.  
 
@@ -30,7 +31,7 @@ Esta shell incluye comandos básicos como listar archivos, leer contenido y calc
 ---
 
 ## Diagrama de Arquitectura del Proyecto:
-
+```
 eafitos/
 ├── build/ # Binarios y archivos generados
 ├── docs/ # Documentación del proyecto
@@ -69,7 +70,7 @@ eafitos/
 ├── LICENSE
 ├── Makefile
 └── README.md
-
+```
 ---
 ## Para compilar:
 Para ejecutar la shell **EAFITos** desde la terminal:
