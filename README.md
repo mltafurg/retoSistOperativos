@@ -1,4 +1,5 @@
 # Reto 1: Creación de la shell EAFITOS
+## Link para el video: https://youtu.be/mHBHF6zUu0M
 ---
 # INTEGRANTES:
 1. Nawal Oriana Valoyes Rentería
