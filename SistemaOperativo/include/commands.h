@@ -71,4 +71,11 @@ void cmd_buscar(char **args);
  */
 int num_comandos();
 
+/**
+ * @brief Ejecuta el sistema de respaldo de archivos.
+ */
+void cmd_respaldo(char **args);
+
+
 #endif
+
